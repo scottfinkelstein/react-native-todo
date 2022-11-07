@@ -8,11 +8,8 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   const handleTask = (task) => {
-    const taskObject = {
-      id: Math.random() * 1000,
-      text: task
-    }
-    setTaskItems([...taskItems, taskObject]);
+    
+    setTaskItems([...taskItems, task]);
     setTask(null);
     Keyboard.dismiss();
   }
@@ -33,7 +30,7 @@ export default function App() {
             taskItems.map((item, index) => {
               return (
                 <TouchableOpacity key={ index } onPress={ () => deleteTask(index) }>
-                  <Task text={ item.text } />
+                  <Task text={ item } />
                 </TouchableOpacity>
               )
             })
